@@ -15,7 +15,7 @@ class CalendarsController < ApplicationController
   private
 
   def plan_params
-    params.require(:calendars).permit(:date, :plan)
+    params.permit(:date, :plan)
   end
 
   def get_week
@@ -35,12 +35,7 @@ class CalendarsController < ApplicationController
         today_plans.push(plan.plan) if plan.date == @todays_date + x
       end
 
-<<<<<<< HEAD
     wday_num = Date.today.wday
-=======
-
-    wday_num = getWeek
->>>>>>> 3d5dd598bd04cab34c73c568bd94953af329fc63
     if wday_num >= 7
       wday_num = wday_num - 7
 
